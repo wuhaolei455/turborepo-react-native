@@ -9,7 +9,7 @@ export default function Native() {
       <Button
         onClick={() => {
           console.log("Pressed!");
-          alert("Pressed!");
+          alert("Pressed!！！！！");
         }}
         text="Boop"
       />
