@@ -1,5 +1,5 @@
 {
-  "name": "api",
+  "name": "examples-trpc-next-prisma-starter",
   "private": true,
   "scripts": {
     "generate": "prisma generate",
@@ -69,5 +69,5 @@
   "publishConfig": {
     "access": "restricted"
   },
-  "version": "11.0.2"
+  "version": "11.1.0"
 }
