@@ -1,73 +1,73 @@
 {
-  "name": "examples-trpc-next-prisma-starter",
+  "name": "api",
+  "version": "0.0.1",
+  "description": "",
+  "author": "",
   "private": true,
+  "license": "UNLICENSED",
   "scripts": {
-    "generate": "prisma generate",
-    "prisma-studio": "prisma studio",
-    "db-seed": "prisma db seed",
-    "db-reset": "prisma migrate dev reset",
-    "dx:next": "run-s migrate-dev db-seed && next dev",
-    "dx:prisma-studio": "pnpm prisma-studio",
-    "dx": "run-p dx:* --print-label",
-    "dev": "pnpm dx:next",
-    "prebuild": "run-s generate migrate",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint --cache src",
-    "lint-fix": "pnpm lint --fix",
-    "migrate-dev": "prisma migrate dev",
-    "migrate": "prisma migrate deploy",
-    "test-unit": "vitest",
-    "test-e2e": "playwright test",
-    "test-start": "run-s test-unit test-e2e",
-    "postinstall": "pnpm generate"
-  },
-  "prisma": {
-    "seed": "tsx prisma/seed.ts"
-  },
-  "prettier": {
-    "printWidth": 80,
-    "trailingComma": "all",
-    "singleQuote": true
+    "build": "nest build",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "start": "nest start",
+    "start:dev": "nest start --watch",
+    "start:debug": "nest start --debug --watch",
+    "start:prod": "node dist/main",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
-    "@prisma/client": "^5.12.1",
-    "@tanstack/react-query": "^5.67.1",
-    "@trpc/client": "npm:@trpc/client",
-    "@trpc/next": "npm:@trpc/next",
-    "@trpc/react-query": "npm:@trpc/react-query",
-    "@trpc/server": "npm:@trpc/server",
-    "clsx": "^2.0.0",
-    "next": "^15.1.7",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "superjson": "^1.12.4",
-    "zod": "^3.24.2"
+    "@nestjs/common": "^11.0.1",
+    "@nestjs/core": "^11.0.1",
+    "@nestjs/platform-express": "^11.0.1",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.1"
   },
   "devDependencies": {
-    "@playwright/test": "^1.50.1",
-    "@types/node": "^22.13.5",
-    "@types/react": "^19.1.0",
-    "autoprefixer": "^10.4.7",
-    "dotenv": "^16.0.1",
-    "eslint": "^9.21.0",
-    "eslint-config-next": "^15.1.7",
-    "eslint-plugin-react": "^7.37.2",
-    "eslint-plugin-react-hooks": "^5.1.0",
-    "npm-run-all": "^4.1.5",
-    "postcss": "^8.4.39",
-    "prettier": "^3.3.3",
-    "prisma": "^5.12.1",
-    "start-server-and-test": "^1.12.0",
-    "tailwindcss": "^3.4.6",
-    "tsx": "^4.19.3",
-    "typescript": "^5.8.2",
-    "typescript-eslint": "^8.24.1",
-    "vite": "^6.1.1",
-    "vitest": "^3.0.6"
+    "@eslint/eslintrc": "^3.2.0",
+    "@eslint/js": "^9.18.0",
+    "@nestjs/cli": "^11.0.0",
+    "@nestjs/schematics": "^11.0.0",
+    "@nestjs/testing": "^11.0.1",
+    "@swc/cli": "^0.6.0",
+    "@swc/core": "^1.10.7",
+    "@types/express": "^5.0.0",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.10.7",
+    "@types/supertest": "^6.0.2",
+    "eslint": "^9.18.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.2",
+    "globals": "^16.0.0",
+    "jest": "^29.7.0",
+    "prettier": "^3.4.2",
+    "source-map-support": "^0.5.21",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.2.5",
+    "ts-loader": "^9.5.2",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.20.0"
   },
-  "publishConfig": {
-    "access": "restricted"
-  },
-  "version": "11.1.0"
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  }
 }
